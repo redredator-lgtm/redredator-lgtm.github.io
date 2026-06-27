@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RED · Redator e Revisor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --fundo:   #1A3D4A;
+      --fundo2:  #122d38;
+      --creme:   #EDE6D6;
+      --dourado: #C8A044;
+      --medio:   rgba(237,230,214,0.55);
+      --borda:   rgba(237,230,214,0.12);
+    }
+
+    html { height: 100%; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--fundo);
+      color: var(--creme);
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ══ LAYOUT DUAS COLUNAS ══ */
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ══ SIDEBAR ══ */
+    .sidebar {
+      width: 280px;
+      flex-shrink: 0;
+      background: var(--fundo2);
+      border-right: 1px solid var(--borda);
+      padding: 2.5rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    /* ── Foto ── */
+    .foto-placeholder {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+      min-height: 80px;
+      border-radius: 50%;
+      background: rgba(237,230,214,0.06);
+      border: 2px dashed rgba(200,160,68,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      color: var(--medio);
+      font-size: 0.52rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-align: center;
+    }
+
+    /* ============================================================
+       👤 FOTO DE PERFIL — SUBSTITUA AQUI
+       Apague o .foto-placeholder e coloque:
+       <img src="foto.jpg" alt="RED" class="perfil-img" />
+       ============================================================ */
+    .perfil-img {
+      width: 80px;
+      height: 80px;
+      min-width: 80px;
+      min-height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--dourado);
+      box-shadow: 0 0 0 4px rgba(200,160,68,0.12);
+      display: block;
+    }
+
+    .sidebar-nome {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--creme);
+      line-height: 1.1;
+      margin-bottom: 0.2rem;
+    }
+
+    .sidebar-cargo {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dourado);
+    }
+
+    .divisor {
+      width: 32px;
+      height: 1px;
+      background: var(--dourado);
+      opacity: 0.4;
+    }
+
+    .sidebar-bio {
+      font-size: 0.83rem;
+      line-height: 1.82;
+      color: var(--medio);
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .sidebar-nav a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--medio);
+      text-decoration: none;
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .sidebar-nav a::before {
+      content: '';
+      width: 0;
+      height: 1px;
+      background: var(--dourado);
+      transition: width 0.25s, margin 0.25s;
+      display: inline-block;
+    }
+
+    .sidebar-nav a:hover { color: var(--creme); gap: 0.5rem; }
+    .sidebar-nav a:hover::before { width: 14px; }
+
+    .sidebar-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: auto;
+      padding-top: 1rem;
+    }
+
+    .btn-contato {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.6rem 1rem;
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--medio);
+      border: 1px solid var(--borda);
+      text-decoration: none;
+      transition: color 0.25s, border-color 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-contato::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--dourado);
+      transform: translateX(-101%);
+      transition: transform 0.28s ease;
+      z-index: 0;
+    }
+
+    .btn-contato:hover::before { transform: translateX(0); }
+    .btn-contato:hover { color: var(--fundo2); border-color: var(--dourado); }
+    .btn-contato svg, .btn-contato span { position: relative; z-index: 1; }
+
+    /* ══ CONTEÚDO DIREITA ══ */
+    .conteudo {
+      flex: 1;
+      padding: 2.5rem 3rem;
+      overflow-y: auto;
+    }
+
+    /* ── Citação ── */
+    .citacao {
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--borda);
+      margin-bottom: 2rem;
+    }
+
+    .citacao blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-style: italic;
+      color: var(--creme);
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+      padding-left: 1.2rem;
+      border-left: 2px solid var(--dourado);
+    }
+
+    .citacao cite {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      font-style: normal;
+      padding-left: 1.2rem;
+    }
+
+    /* ── Seção título ── */
+    .secao-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--creme);
+      letter-spacing: 0.04em;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--borda);
+      margin-bottom: 0;
+    }
+
+    /* ── Trabalhos ── */
+    .trabalho-item {
+      display: block;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--borda);
+      text-decoration: none;
+      transition: padding-left 0.2s ease;
+    }
+
+    .trabalho-item:hover { padding-left: 0.6rem; }
+    .trabalho-item:hover .trabalho-titulo { color: var(--dourado); }
+
+    .trabalho-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .trabalho-data {
+      font-size: 0.63rem;
+      font-weight: 500;
+      color: var(--dourado);
+      letter-spacing: 0.06em;
+    }
+
+    .trabalho-veiculo {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--medio);
+    }
+
+    .trabalho-veiculo::before {
+      content: '·';
+      margin-right: 0.5rem;
+      opacity: 0.4;
+    }
+
+    .trabalho-titulo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--creme);
+      line-height: 1.3;
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .trabalho-trecho {
+      font-size: 0.84rem;
+      line-height: 1.75;
+      color: var(--medio);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ── Sobre ── */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--borda);
+      margin-bottom: 1.5rem;
+    }
+
+    .sobre-bloco h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--creme);
+      margin-bottom: 0.7rem;
+    }
+
+    .sobre-bloco p {
+      font-size: 0.84rem;
+      line-height: 1.85;
+      color: var(--medio);
+    }
+
+    .sobre-bloco p strong { color: var(--creme); font-weight: 600; }
+
+    /* ── Tags ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--borda);
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      border: 1px solid rgba(200,160,68,0.25);
+      padding: 0.28rem 0.65rem;
+      transition: background 0.2s, color 0.2s;
+      cursor: default;
+    }
+
+    .tag:hover { background: var(--dourado); color: var(--fundo2); }
+
+    /* ── Footer ── */
+    footer {
+      font-size: 0.63rem;
+      color: var(--medio);
+      padding-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-redes { display: flex; gap: 1rem; }
+
+    .footer-redes a {
+      font-size: 0.63rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--medio);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-redes a:hover { color: var(--dourado); }
+
+    /* ── Animações ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .sidebar > * { opacity: 0; animation: fadeUp 0.4s ease forwards; }
+    .sidebar > *:nth-child(1) { animation-delay: 0.05s; }
+    .sidebar > *:nth-child(2) { animation-delay: 0.12s; }
+    .sidebar > *:nth-child(3) { animation-delay: 0.18s; }
+    .sidebar > *:nth-child(4) { animation-delay: 0.24s; }
+    .sidebar > *:nth-child(5) { animation-delay: 0.30s; }
+    .sidebar > *:nth-child(6) { animation-delay: 0.36s; }
+
+    .trabalho-item { opacity: 0; animation: fadeUp 0.4s ease forwards; }
+    .trabalho-item:nth-child(1) { animation-delay: 0.2s; }
+    .trabalho-item:nth-child(2) { animation-delay: 0.28s; }
+    .trabalho-item:nth-child(3) { animation-delay: 0.36s; }
+    .trabalho-item:nth-child(4) { animation-delay: 0.44s; }
+    .trabalho-item:nth-child(5) { animation-delay: 0.52s; }
+
+    /* ── Responsivo ── */
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid var(--borda); }
+      .sidebar-btns { flex-direction: row; flex-wrap: wrap; padding-top: 0; }
+      .conteudo { padding: 2rem 1.5rem; }
+      .sobre-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ══ SIDEBAR ESQUERDA (FIXA) ══ -->
+  <aside class="sidebar">
+
+    <!-- ============================================================
+         👤 FOTO DE PERFIL — SUBSTITUA AQUI
+         Apague o .foto-placeholder e coloque:
+         <img src="foto.jpg" alt="RED" class="perfil-img" />
+         ============================================================ -->
+    <div class="foto-placeholder">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      👤 foto.jpg
+    </div>
+
+    <div>
+      <p class="sidebar-nome">RED</p><!-- SUBSTITUA pelo seu nome -->
+      <p class="sidebar-cargo">Redator e Revisor</p>
+    </div>
+
+    <div class="divisor"></div>
+
+    <p class="sidebar-bio">Copy estratégico para buscadores, motores de IA e leitores reais. À direita você encontra uma seleção dos meus trabalhos.</p><!-- SUBSTITUA -->
+
+    <ul class="sidebar-nav">
+      <li><a href="#trabalhos">Trabalhos</a></li>
+      <li><a href="#sobre">Sobre mim</a></li>
+      <li><a href="mailto:redredator@gmail.com">Contato</a></li>
+    </ul>
+
+    <div class="sidebar-btns">
+      <a href="mailto:redredator@gmail.com" class="btn-contato"><!-- SUBSTITUA e-mail -->
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        <span>E-mail</span>
+      </a>
+      <a href="#" class="btn-contato"><!-- SUBSTITUA link LinkedIn -->
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        <span>LinkedIn</span>
+      </a>
+      <a href="#" class="btn-contato"><!-- SUBSTITUA link Instagram -->
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+        <span>Instagram</span>
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- ══ CONTEÚDO DIREITA (SCROLL) ══ -->
+  <main class="conteudo">
+
+    <div class="citacao"><!-- SUBSTITUA pela sua citação favorita -->
+      <blockquote>Não existe texto ruim. Existe texto que ainda não encontrou as palavras certas.</blockquote>
+      <cite>— RED</cite>
+    </div>
+
+    <h2 class="secao-titulo" id="trabalhos">Trabalhos recentes</h2>
+
+    <!-- ══ TRABALHO 1 — SUBSTITUA href, data, veículo, título e trecho ══ -->
+    <a class="trabalho-item" href="#">
+      <div class="trabalho-meta">
+        <span class="trabalho-data">← Data (ex: Mar 2025)</span>
+        <span class="trabalho-veiculo">← Cliente ou Veículo</span>
+      </div>
+      <h3 class="trabalho-titulo">← Título do trabalho ou campanha</h3>
+      <p class="trabalho-trecho">← Breve descrição do projeto. O que foi feito, para quem e qual resultado gerou.</p>
+    </a>
+
+    <!-- ══ TRABALHO 2 ══ -->
+    <a class="trabalho-item" href="#">
+      <div class="trabalho-meta">
+        <span class="trabalho-data">← Data</span>
+        <span class="trabalho-veiculo">← Cliente ou Veículo</span>
+      </div>
+      <h3 class="trabalho-titulo">← Título do trabalho ou campanha</h3>
+      <p class="trabalho-trecho">← Breve descrição do projeto.</p>
+    </a>
+
+    <!-- ══ TRABALHO 3 ══ -->
+    <a class="trabalho-item" href="#">
+      <div class="trabalho-meta">
+        <span class="trabalho-data">← Data</span>
+        <span class="trabalho-veiculo">← Cliente ou Veículo</span>
+      </div>
+      <h3 class="trabalho-titulo">← Título do trabalho ou campanha</h3>
+      <p class="trabalho-trecho">← Breve descrição do projeto.</p>
+    </a>
+
+    <!-- ══ TRABALHO 4 ══ -->
+    <a class="trabalho-item" href="#">
+      <div class="trabalho-meta">
+        <span class="trabalho-data">← Data</span>
+        <span class="trabalho-veiculo">← Cliente ou Veículo</span>
+      </div>
+      <h3 class="trabalho-titulo">← Título do trabalho ou campanha</h3>
+      <p class="trabalho-trecho">← Breve descrição do projeto.</p>
+    </a>
+
+    <!-- ══ TRABALHO 5 — duplique para adicionar mais ══ -->
+    <a class="trabalho-item" href="#">
+      <div class="trabalho-meta">
+        <span class="trabalho-data">← Data</span>
+        <span class="trabalho-veiculo">← Cliente ou Veículo</span>
+      </div>
+      <h3 class="trabalho-titulo">← Título do trabalho ou campanha</h3>
+      <p class="trabalho-trecho">← Breve descrição do projeto.</p>
+    </a>
+
+    <!-- ══ SOBRE ══ -->
+    <div class="sobre-grid" id="sobre">
+      <div class="sobre-bloco">
+        <h3>Sobre mim</h3><!-- SUBSTITUA -->
+        <p>Sou RED — redator e revisor com foco em copy estratégico. Textos que <strong>são encontrados, lidos e convertidos</strong>.<br><br>Especialista em marketing digital e no segmento educacional.</p>
+      </div>
+      <div class="sobre-bloco">
+        <h3>Como trabalho</h3><!-- SUBSTITUA -->
+        <p>Começo pelo entendimento do negócio e do público. O texto vem depois — com <strong>intenção em cada frase</strong>, estrutura para SEO, AEO e AIO, e revisão que respeita a voz da marca.</p>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">SEO</span>
+      <span class="tag">AEO</span>
+      <span class="tag">AIO</span>
+      <span class="tag">Copy Publicitário</span>
+      <span class="tag">Marketing Digital</span>
+      <span class="tag">Segmento Educacional</span>
+      <span class="tag">Revisão Textual</span>
+      <span class="tag">Landing Pages</span>
+      <span class="tag">E-mail Marketing</span>
+    </div>
+
+    <footer>
+      <span>© 2025 RED · Redator e Revisor</span>
+      <div class="footer-redes">
+        <a href="#">LinkedIn</a><!-- SUBSTITUA -->
+        <a href="#">Instagram</a><!-- SUBSTITUA -->
+        <a href="mailto:redredator@gmail.com">E-mail</a><!-- SUBSTITUA -->
+      </div>
+    </footer>
+
+  </main>
+
+</div>
+</body>
+</html>
