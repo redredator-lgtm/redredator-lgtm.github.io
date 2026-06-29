@@ -1,0 +1,13 @@
+/* TEAM */
+Copywriter & Revisor: Luan Barboza (RED)
+Site: https://redredator-lgtm.github.io/
+Contact: redredator [at] gmail [dot] com
+Instagram: @redredator
+
+/* THANKS */
+Fonts: Google Fonts (Playfair Display, Inter)
+Hosted: GitHub Pages
+
+/* SITE */
+Last update: 2026-06
+Language: Portuguese (Brazil)
