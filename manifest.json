@@ -1,0 +1,16 @@
+{
+  "name": "RED · Redator e Revisor",
+  "short_name": "RED",
+  "description": "Portfólio de Luan Barboza — copywriter e revisor freelance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1A1A1A",
+  "theme_color": "#C9A84C",
+  "icons": [
+    {
+      "src": "/og-image.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg"
+    }
+  ]
+}
