@@ -437,6 +437,38 @@
 
     .sobre-bloco p strong { color: var(--creme); font-weight: 600; }
 
+    /* ── Skills ── */
+    .skills-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .skill-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--borda);
+    }
+    .skill-item:first-child { border-top: 1px solid var(--borda); }
+    .skill-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--dourado);
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+      min-width: 1.6rem;
+    }
+    .skill-nome {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--creme);
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
     /* ── Tags ── */
     .tags {
       display: flex;
@@ -725,10 +757,22 @@
 
     <div class="sobre-grid" id="sobre">
       <div class="sobre-bloco">
-        <h3>Sobre mim:</h3>
+        <h3>Sobre mim</h3>
+        <p>Sou Luan Barboza, conhecido como Red. Minha relação com as palavras é antiga: comecei escrevendo poesia ainda criança e nunca parei de procurar o termo exato, o ritmo certo, a frase que fica na cabeça.</p>
+        <p>Formado em História, aprendi que narrativa não é enfeite, é estrutura. É o que sustenta um argumento, é o que dá vida a uma campanha e faz uma marca ser lembrada.</p>
+        <p>Ao longo dos anos passei pela poesia, pela redação de projetos de pesquisa acadêmica e pela escrita jornalística. Essa trajetória moldou minha escrita: carrego a bagagem de quem cresceu com versos, a disciplina de quem pesquisa antes de escrever e a clareza de quem entende que o texto existe para o leitor.</p>
+        <p>Hoje atuo como <strong>redator, revisor e copywriter</strong> com foco em marketing e publicidade — entrego textos que comunicam, convencem, retêm e convertem.</p>
       </div>
       <div class="sobre-bloco">
-        <h3>Como eu trabalho:</h3>
+        <h3>Coisas técnicas</h3>
+        <ul class="skills-lista">
+          <li class="skill-item"><span class="skill-num">01</span><span class="skill-nome">Escrita Criativa</span></li>
+          <li class="skill-item"><span class="skill-num">02</span><span class="skill-nome">Copy Publicitário</span></li>
+          <li class="skill-item"><span class="skill-num">03</span><span class="skill-nome">Voz de Marca</span></li>
+          <li class="skill-item"><span class="skill-num">04</span><span class="skill-nome">Revisão Textual</span></li>
+          <li class="skill-item"><span class="skill-num">05</span><span class="skill-nome">Técnicas de AIO</span></li>
+          <li class="skill-item"><span class="skill-num">06</span><span class="skill-nome">Técnicas de AEO</span></li>
+        </ul>
       </div>
     </div>
 
