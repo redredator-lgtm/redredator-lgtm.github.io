@@ -689,6 +689,9 @@
     }
     .cta-btn:hover { background: var(--dourado); color: #1A1A1A; }
   </style>
+  <link rel="stylesheet" href="/assets/artigo.css">
+  <script src="/assets/artigo-midias.js" defer></script>
+  <script src="/assets/artigo.js" defer></script>
 </head>
 <body>
 <div class="layout">
@@ -742,7 +745,8 @@
     <h2 class="secao-titulo" id="trabalhos">Trabalhos recentes</h2>
 
     <div class="trabalhos-lista">
-    <article class="trabalho-item">
+    <article class="trabalho-item" id="ia-ferramenta">
+      <a class="trabalho-artigo-link" href="/artigos/ia-ferramenta.html" data-artigo-modal>
       <div class="trabalho-meta" style="padding: 0.8rem 0.8rem 0;">
         <span class="trabalho-data">Ago 2026</span>
         <span class="trabalho-veiculo">Autoral</span>
@@ -752,6 +756,8 @@
         <img src="img/work-ia-ferramenta-v2.png" alt="Lambe-lambe sobre inteligência artificial como ferramenta sob direção humana" loading="lazy" style="object-position: center 58%;" />
       </div>
       <h3 class="trabalho-titulo" style="padding: 0.8rem; margin-bottom: 0;">IA é ferramenta. Toda e qualquer direção é humana.</h3>
+      <p class="trabalho-trecho" style="padding: 0 0.8rem 0.8rem;">Da lógica formal às LLMs: um estudo sobre inteligência artificial, repertório profissional e a responsabilidade pela direção do trabalho.</p>
+      </a>
     </article>
 
     <article class="trabalho-item" style="cursor:pointer;" onclick='abrirModal("Ago 2026","Webinar Margens","Copy","Muitos autores. Um único padrão.","Quatro autores, três jeitos de citar e nenhuma margem igual. O arquivo chegou. E agora?\n\nEsse é o ponto de partida do Webinar Margens: preparação de originais, padronização, referências e as pequenas decisões que fazem textos diferentes caberem na mesma publicação sem apagar a voz de ninguém.\n\nTraga suas dúvidas e, se quiser, aquele arquivo que ainda está dando trabalho.\n\n[Data - Hora - Link]",["img/work-muitos-autores-card.png"])'>
