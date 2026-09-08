@@ -699,17 +699,17 @@
 
     .sidebar-nav a[aria-current="page"] { color: var(--dourado); }
     .certificados-conteudo { padding-bottom: 0; }
-    .certificados-header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 300px); gap: 2.5rem; align-items: end; margin: 2rem 0 3.25rem; }
+    .certificados-header { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; margin: 1.5rem 0 2.75rem; }
     .certificados-kicker { color: var(--dourado); font-size: 0.67rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.65rem; }
-    .certificados-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.9rem, 6vw, 5.2rem); line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 1.25rem; }
+    .certificados-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 4.2vw, 4.35rem); line-height: 0.98; letter-spacing: -0.035em; margin-bottom: 1rem; white-space: nowrap; }
     .certificados-header > div > p:last-child { max-width: 680px; color: var(--medio); font-size: 0.98rem; line-height: 1.75; }
-    .cv-card { min-height: 118px; background: var(--fundo2); color: var(--creme); border: 1px solid rgba(181,88,26,0.32); border-top: 2px solid var(--dourado); text-decoration: none; padding: 1.25rem 1.35rem; display: grid; grid-template-columns: 28px minmax(0, 1fr) 18px; gap: 0.9rem; align-items: center; transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+    .cv-card { min-height: 110px; background: var(--fundo2); color: var(--creme); border: 1px solid rgba(181,88,26,0.32); border-top: 2px solid var(--dourado); text-decoration: none; padding: 1.1rem 1.2rem; display: grid; grid-template-columns: 26px minmax(0, 1fr) 18px; gap: 0.8rem; align-items: center; transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
     .cv-card:hover { transform: translateY(-3px); background: #e8dfd1; border-color: var(--dourado); }
     .cv-card-icon, .cv-card-arrow { color: var(--dourado); display: flex; align-items: center; justify-content: center; }
     .cv-card-copy { display: flex; flex-direction: column; gap: 0.3rem; min-width: 0; }
     .cv-card strong { font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.1; }
     .cv-card small { color: var(--medio); font-size: 0.63rem; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.4; }
-    .certificados-intro { max-width: 720px; margin-bottom: 1.6rem; border-top: 1px solid var(--borda); padding: 1.5rem 0 0.1rem; }
+    .certificados-intro { width: 100%; margin-bottom: 1.6rem; border-top: 1px solid var(--borda); padding: 1.5rem 0 0.1rem; }
     .certificados-intro h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.45rem); line-height: 1.02; margin-bottom: 0.65rem; }
     .certificados-intro > p:last-child { color: var(--medio); font-size: 0.88rem; line-height: 1.65; }
     .certificados-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
@@ -724,8 +724,9 @@
     .certificado-info h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; line-height: 1.18; margin: 0.45rem 0 1rem; }
     .certificado-info small { color: var(--medio); letter-spacing: 0.06em; margin-top: auto; }
     .certificado-info small::after { content: '  ↗'; color: var(--dourado); }
-    @media (max-width: 1100px) {
+    @media (max-width: 1050px) {
       .certificados-header { grid-template-columns: 1fr; }
+      .certificados-header h1 { white-space: normal; }
       .cv-card { max-width: 360px; }
       .certificados-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
