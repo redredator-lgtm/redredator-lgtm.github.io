@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sobre · RED</title>
-  <meta name="description" content="RED — redator e revisor freelance, especializado em copy publicitário, SEO e conteúdo estratégico para marcas e negócios." />
+  <title>CV e certificados · RED</title>
+  <meta name="description" content="Currículo e certificados profissionais de Luan Barboza, redator, revisor e copywriter." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="RED · Redator e Revisor" />
   <meta property="og:description" content="Copy publicitário, SEO e conteúdo estratégico para marcas e negócios." />
@@ -17,7 +17,7 @@
   <meta name="geo.region" content="BR-BA" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%93%98</text></svg>">
   <link rel="prefetch" href="trabalhos.html" />
-  <link rel="canonical" href="https://redredator-lgtm.github.io/sobre.html" />
+  <link rel="canonical" href="https://redredator-lgtm.github.io/certificados.html" />
   <link rel="manifest" href="/manifest.json" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -696,6 +696,47 @@
       transition: background 0.2s, color 0.2s;
     }
     .cta-btn:hover { background: var(--dourado); color: #1A1A1A; }
+
+    .sidebar-nav a[aria-current="page"] { color: var(--dourado); }
+    .certificados-conteudo { padding-bottom: 0; }
+    .certificados-header { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(230px, 0.65fr); gap: 2.2rem; align-items: end; margin: 2rem 0 3rem; }
+    .certificados-kicker { color: var(--dourado); font-size: 0.67rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.65rem; }
+    .certificados-header h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.9rem, 6vw, 5.2rem); line-height: 0.95; letter-spacing: -0.04em; margin-bottom: 1.25rem; }
+    .certificados-header > div > p:last-child { max-width: 680px; color: var(--medio); font-size: 0.98rem; line-height: 1.75; }
+    .cv-card { align-self: stretch; min-height: 150px; background: var(--creme); color: var(--fundo); text-decoration: none; padding: 1.6rem; display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; transition: transform 0.25s ease, background 0.25s ease; }
+    .cv-card:hover { transform: translateY(-4px); background: var(--dourado); }
+    .cv-card span { display: flex; flex-direction: column; gap: 0.35rem; }
+    .cv-card strong { font-family: 'Playfair Display', serif; font-size: 1.35rem; }
+    .cv-card small { color: rgba(245,240,232,0.68); font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .cv-card b { font-size: 1.2rem; font-weight: 400; }
+    .certificados-colagem { margin: 0 0 4rem; }
+    .certificados-colagem img { width: 100%; display: block; border: 1px solid var(--borda); }
+    .certificados-colagem figcaption { color: var(--medio); font-family: 'Playfair Display', serif; font-size: 0.9rem; font-style: italic; padding-top: 0.8rem; }
+    .certificados-intro { display: grid; grid-template-columns: 1fr 2fr; column-gap: 2rem; margin-bottom: 1.8rem; border-top: 1px solid var(--borda); padding-top: 2rem; }
+    .certificados-intro .certificados-kicker { grid-column: 1 / -1; }
+    .certificados-intro h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 3.2rem); line-height: 1; }
+    .certificados-intro > p:last-child { color: var(--medio); line-height: 1.65; align-self: end; }
+    .certificados-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem; }
+    .certificado-card { background: #fff; border: 1px solid var(--borda); overflow: hidden; }
+    .certificado-card a { color: inherit; text-decoration: none; display: block; height: 100%; }
+    .certificado-thumb { background: #e8e4dc; aspect-ratio: 16 / 10; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .certificado-thumb img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.35s ease; }
+    .certificado-card:hover .certificado-thumb img { transform: scale(1.025); }
+    .certificado-info { padding: 1.25rem 1.35rem 1.4rem; }
+    .certificado-info span, .certificado-info small { display: block; color: var(--dourado); font-size: 0.63rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .certificado-info h2 { font-family: 'Playfair Display', serif; font-size: 1.35rem; line-height: 1.16; margin: 0.5rem 0 1.2rem; }
+    .certificado-info small { color: var(--medio); letter-spacing: 0.06em; }
+    @media (max-width: 820px) {
+      .certificados-header { grid-template-columns: 1fr; margin-top: 1rem; }
+      .cv-card { min-height: 120px; }
+      .certificados-colagem { margin-bottom: 3rem; }
+      .certificados-grid { grid-template-columns: 1fr; }
+      .certificados-intro { grid-template-columns: 1fr; gap: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+      .certificados-header h1 { font-size: 2.7rem; }
+      .certificado-info h2 { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -724,8 +765,8 @@
 
     <ul class="sidebar-nav">
       <li><a href="trabalhos.html"><svg class="nav-icone" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4.5A1.5 1.5 0 0 1 3.5 3H9a2 2 0 0 1 2 2v14a1.5 1.5 0 0 0-1.5-1.5H3.5A1.5 1.5 0 0 1 2 16z"/><path d="M22 4.5A1.5 1.5 0 0 0 20.5 3H15a2 2 0 0 0-2 2v14a1.5 1.5 0 0 1 1.5-1.5h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg>Trabalhos</a></li>
-      <li><a href="certificados.html"><svg class="nav-icone" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v5h5M9 12h7M9 16h7"/></svg>CV e certificados</a></li>
-      <li><a href="sobre.html" aria-current="page"><svg class="nav-icone" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>Sobre mim</a></li>
+      <li><a href="certificados.html" aria-current="page"><svg class="nav-icone" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v5h5M9 12h7M9 16h7"/></svg>CV e certificados</a></li>
+      <li><a href="sobre.html"><svg class="nav-icone" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>Sobre mim</a></li>
       <li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#101;&#100;&#114;&#101;&#100;&#97;&#116;&#111;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;"><svg class="nav-icone" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>Contato</a></li>
     </ul>
 
@@ -743,127 +784,97 @@
     </div>
 
   </aside>
-  <main class="conteudo">
-
+  <main class="conteudo certificados-conteudo">
     <div class="home-topo">
       <a href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Página inicial</a>
     </div>
 
-    <div class="citacao">
-      <blockquote>Nunca deixe de testar, e sua propaganda nunca vai parar de melhorar.</blockquote>
-      <cite>David Ogilvy</cite>
-    </div>
-
-    <h2 class="secao-titulo">Me conheça</h2>
-
-    <div class="sobre-grid" id="sobre">
-      <div class="sobre-bloco">
-        <h3>Sobre mim</h3>
-        <p>Sou Luan Barboza, conhecido como Red. Minha relação com as palavras é antiga: comecei escrevendo poesia ainda criança e nunca parei de procurar o termo exato, o ritmo certo, a frase que fica na cabeça.</p>
-        <p>Formado em História, aprendi que narrativa não é enfeite, é estrutura. É o que sustenta um argumento, é o que dá vida a uma campanha e faz uma marca ser lembrada.</p>
-        <p>Ao longo dos anos passei pela poesia, pela redação de projetos de pesquisa acadêmica e pela escrita jornalística. Essa trajetória moldou minha escrita: carrego a bagagem de quem cresceu com versos, a disciplina de quem pesquisa antes de escrever e a clareza de quem entende que o texto existe para o leitor.</p>
-        <p>Hoje atuo como <strong>redator, revisor e copywriter</strong> com foco em marketing e publicidade. Entrego textos que comunicam, convencem, retêm e convertem.</p>
+    <header class="certificados-header">
+      <div>
+        <p class="certificados-kicker">Formação contínua</p>
+        <h1>CV e certificados</h1>
+        <p>Experiência profissional, formação e certificações em marketing digital, conteúdo, inteligência artificial e vendas.</p>
       </div>
-      <div class="sobre-bloco">
-        <h3>Competências</h3>
-        <ul class="skills-lista">
-          <li class="skill-item"><span class="skill-num">01</span><span class="skill-nome">Escrita Criativa</span></li>
-          <li class="skill-item"><span class="skill-num">02</span><span class="skill-nome">Copy Publicitário</span></li>
-          <li class="skill-item"><span class="skill-num">03</span><span class="skill-nome">Voz de Marca</span></li>
-          <li class="skill-item"><span class="skill-num">04</span><span class="skill-nome">Revisão Textual</span></li>
-          <li class="skill-item"><span class="skill-num">05</span><span class="skill-nome">Técnicas de AIO</span></li>
-          <li class="skill-item"><span class="skill-num">06</span><span class="skill-nome">Técnicas de AEO</span></li>
-          <li class="skill-item"><span class="skill-num">07</span><span class="skill-nome">SEO de Conteúdo</span></li>
-          <li class="skill-item"><span class="skill-num">08</span><span class="skill-nome">Storytelling de Marca</span></li>
-          <li class="skill-item"><span class="skill-num">09</span><span class="skill-nome">Redação para Redes Sociais</span></li>
-        </ul>
-      </div>
+      <a class="cv-card" href="assets/cv/CV_Luan_Barboza.pdf" target="_blank" rel="noopener">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2h9l4 4v16H6z"/><path d="M15 2v5h5M9 12h7M9 16h7"/></svg>
+        <span><strong>Abrir currículo</strong><small>PDF · versão atualizada</small></span>
+        <b aria-hidden="true">↗</b>
+      </a>
+    </header>
+
+    <figure class="certificados-colagem">
+      <img src="img/certificados/colagem-certificados.webp" alt="Colagem com oito certificados profissionais de Luan Barboza" />
+      <figcaption>Oito certificados, uma trajetória de aprendizado contínuo.</figcaption>
+    </figure>
+
+    <div class="certificados-intro">
+      <p class="certificados-kicker">Certificados</p>
+      <h2>Formação complementar</h2>
+      <p>Clique em um certificado para visualizar o documento original.</p>
     </div>
 
-    <div class="cta-contato">
-      <p class="cta-texto">Vamos trabalhar juntos?</p>
-      <div class="cta-links">
-        <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#101;&#100;&#114;&#101;&#100;&#97;&#116;&#111;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;" class="cta-btn">E-mail</a>
-        <a href="https://www.instagram.com/redredator/" target="_blank" rel="noopener noreferrer me" class="cta-btn">Instagram</a>
-      </div>
-    </div>
-
-    <div class="tags">
-      
-      
-      
-      <span class="tag">Copy Publicitário</span>
-      <span class="tag">Marketing Digital</span>
-      <span class="tag">Segmento Educacional</span>
-      <span class="tag">Revisão Textual</span>
-      <span class="tag">Conteúdo Estratégico</span>
-      <span class="tag">Voz de Marca</span>
-      <span class="tag">Texto para Conversão</span>
-    </div>
+    <section class="certificados-grid" aria-label="Lista de certificados">
+      <article class="certificado-card">
+        <a href="assets/certificados/rd-marketing-na-pratica.pdf" target="_blank" rel="noopener" aria-label="Abrir certificado: Certificação RD Station Marketing na Prática">
+          <div class="certificado-thumb"><img src="img/certificados/rd-marketing-na-pratica.webp" alt="Certificado Certificação RD Station Marketing na Prática" loading="lazy" /></div>
+          <div class="certificado-info"><span>RD Station</span><h2>Certificação RD Station Marketing na Prática</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+      <article class="certificado-card">
+        <a href="assets/certificados/rd-certificacao-bdr.pdf" target="_blank" rel="noopener" aria-label="Abrir certificado: Certificação em BDR">
+          <div class="certificado-thumb"><img src="img/certificados/rd-certificacao-bdr.webp" alt="Certificado Certificação em BDR" loading="lazy" /></div>
+          <div class="certificado-info"><span>RD Station</span><h2>Certificação em BDR</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+      <article class="certificado-card">
+        <a href="assets/certificados/rd-conversas-na-pratica.pdf" target="_blank" rel="noopener" aria-label="Abrir certificado: Certificação RD Station Conversas na Prática">
+          <div class="certificado-thumb"><img src="img/certificados/rd-conversas-na-pratica.webp" alt="Certificado Certificação RD Station Conversas na Prática" loading="lazy" /></div>
+          <div class="certificado-info"><span>RD Station</span><h2>Certificação RD Station Conversas na Prática</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+      <article class="certificado-card">
+        <a href="assets/certificados/hubspot-digital-marketing.png" target="_blank" rel="noopener" aria-label="Abrir certificado: Digital Marketing Certified">
+          <div class="certificado-thumb"><img src="img/certificados/hubspot-digital-marketing.webp" alt="Certificado Digital Marketing Certified" loading="lazy" /></div>
+          <div class="certificado-info"><span>HubSpot Academy</span><h2>Digital Marketing Certified</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+      <article class="certificado-card">
+        <a href="assets/certificados/hubspot-aeo-fundamentals.png" target="_blank" rel="noopener" aria-label="Abrir certificado: AEO Fundamentals">
+          <div class="certificado-thumb"><img src="img/certificados/hubspot-aeo-fundamentals.webp" alt="Certificado AEO Fundamentals" loading="lazy" /></div>
+          <div class="certificado-info"><span>HubSpot Academy</span><h2>AEO Fundamentals</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+      <article class="certificado-card">
+        <a href="assets/certificados/ibm-ia-generativa.pdf" target="_blank" rel="noopener" aria-label="Abrir certificado: Getting Started with Generative AI">
+          <div class="certificado-thumb"><img src="img/certificados/ibm-ia-generativa.webp" alt="Certificado Getting Started with Generative AI" loading="lazy" /></div>
+          <div class="certificado-info"><span>IBM SkillsBuild</span><h2>Getting Started with Generative AI</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+      <article class="certificado-card">
+        <a href="assets/certificados/sebrae-marketing-digital.pdf" target="_blank" rel="noopener" aria-label="Abrir certificado: Marketing Digital: Estratégias e Práticas para Conquistar Clientes">
+          <div class="certificado-thumb"><img src="img/certificados/sebrae-marketing-digital.webp" alt="Certificado Marketing Digital: Estratégias e Práticas para Conquistar Clientes" loading="lazy" /></div>
+          <div class="certificado-info"><span>Sebrae</span><h2>Marketing Digital: Estratégias e Práticas para Conquistar Clientes</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+      <article class="certificado-card">
+        <a href="assets/certificados/senac-copywriting-funil.pdf" target="_blank" rel="noopener" aria-label="Abrir certificado: Marketing Digital: Copywriting e Funil de Captação">
+          <div class="certificado-thumb"><img src="img/certificados/senac-copywriting-funil.webp" alt="Certificado Marketing Digital: Copywriting e Funil de Captação" loading="lazy" /></div>
+          <div class="certificado-info"><span>Senac</span><h2>Marketing Digital: Copywriting e Funil de Captação</h2><small>2026 · Abrir certificado ↗</small></div>
+        </a>
+      </article>
+    </section>
 
     <footer>
-      <span>© 2025 RED · Redator e Revisor</span>
+      <span>© 2026 RED · Redator e Revisor</span>
       <div class="footer-redes">
         <a href="https://www.linkedin.com/in/luan-barboza-79648233a" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="https://www.instagram.com/redredator/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#114;&#101;&#100;&#114;&#101;&#100;&#97;&#116;&#111;&#114;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">E-mail</a>
       </div>
     </footer>
-
   </main>
 
 </div>
-  <div class="modal-overlay" id="modal" onclick="fecharModal(event)">
-    <div class="modal" id="modal-conteudo">
-      <button class="modal-fechar" onclick="document.getElementById('modal').classList.remove('ativo')">×</button>
-      <div class="modal-imgs" id="modal-imgs"></div>
-      <div class="modal-corpo">
-        <div class="modal-meta">
-          <span class="modal-data" id="modal-data"></span>
-          <span class="modal-veiculo" id="modal-veiculo"></span>
-          <span class="modal-role" id="modal-role"></span>
-        </div>
-        <h2 class="modal-titulo" id="modal-titulo"></h2>
-        <p class="modal-texto" id="modal-texto"></p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function abrirModal(data, veiculo, role, titulo, texto, imgs) {
-      document.getElementById('modal-data').textContent = data;
-      document.getElementById('modal-veiculo').textContent = veiculo;
-      document.getElementById('modal-role').textContent = role;
-      document.getElementById('modal-titulo').textContent = titulo;
-      document.getElementById('modal-texto').textContent = texto;
-
-      var container = document.getElementById('modal-imgs');
-      container.innerHTML = '';
-      imgs.forEach(function(src) {
-        var img = document.createElement('img');
-        img.src = src;
-        container.appendChild(img);
-      });
-
-      document.getElementById('modal').classList.add('ativo');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function fecharModal(e) {
-      if (e.target === document.getElementById('modal')) {
-        document.getElementById('modal').classList.remove('ativo');
-        document.body.style.overflow = '';
-      }
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.getElementById('modal').classList.remove('ativo');
-        document.body.style.overflow = '';
-      }
-    });
-  </script>
-
 </body>
 </html>
 
